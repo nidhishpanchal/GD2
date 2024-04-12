@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+    
+<title>Rappers & Recpies</title>
+<body>
+    
+    <a href="../html/index.html"><h1>Rappers & Recipes</h1></a>
+    
+        <!--nav-->
+        <h4>  
+            <a href="../html/index.html">Home</a>
+
+            <a href="../html/about.html">About</a>
+
+            <a href="../html/contact.html">Contact</a> 
+        </h4>
+
+    
+<!--Images-->
+ <!-- DRAKE -->
+ <a id="passionFruitLink" href="../html/drake-passion fruit cocktail.HTML">    
+    <img src="../images/drake/Untitled-1-01.png" class="cover"/> 
+</a>
+<div id="drake"></div>
+
+<script>
+    function updateTimer(timerId) {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var remainingHours, remainingMinutes, remainingSeconds;
+
+        if (hours < 17 || (hours === 17 && minutes === 0 && seconds === 0)) { // If before 5pm
+            remainingHours = 16 - hours;
+            remainingMinutes = 59 - minutes;
+            remainingSeconds = 59 - seconds;
+        } 
+        else { // If after 5pm, countdown until next 5pm
+            remainingHours = 24 - hours + 16;
+            remainingMinutes = 59 - minutes;
+            remainingSeconds = 59 - seconds;
+        }
+
+        var timerDisplay = document.getElementById(timerId);
+        timerDisplay.innerHTML = "Unlocks in: " + remainingHours + "h " + remainingMinutes + "m " + remainingSeconds + "s";
+    }
+
+    function disableLink(linkId) {
+        var link = document.getElementById(linkId);
+        link.href = "javascript:void(0)"; // Disable the link
+        link.onclick = function() {
+            alert("Sorry, this recipe is only available after 5pm.");
+        };
+    }
+
+    function initializeTimer(linkId, timerId) {
+        var now = new Date();
+        var hours = now.getHours();
+
+        if (hours >= 17 || hours < 3) { // If between 5pm and 3am, hide the timer
+            var timerDisplay = document.getElementById(timerId);
+            timerDisplay.style.display = "none";
+        } else { // Otherwise, initialize the timer
+            updateTimer(timerId); // Initial call to update timer
+
+            // Update timer every second
+            setInterval(function() {
+                updateTimer(timerId);
+                var hours = new Date().getHours();
+                if (hours >= 17 || hours < 3) { // If between 5pm and 3am, hide the timer
+                    var timerDisplay = document.getElementById(timerId);
+                    timerDisplay.style.display = "none";
+                }
+            }, 1000);
+        }
+
+        if (hours < 17) { // If before 5pm, disable the link
+            disableLink(linkId);
+        }
+    }
+
+    initializeTimer("passionFruitLink", "drake");
+</script>
+
+
+<!-- 2CHAINZ -->
+<a id="chainzlink" href="../html/2chainzcocktail.html">    
+    <img src="../images/drake/Untitled-1-01.png" class="cover"/> 
+</a>
+<div id="chainzTimer"></div>
+
+<script>
+    function updateTimer(timerId) {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var remainingHours, remainingMinutes, remainingSeconds;
+
+        if (hours < 17 || (hours === 17 && minutes === 0 && seconds === 0)) { // If before 5pm
+            remainingHours = 16 - hours;
+            remainingMinutes = 59 - minutes;
+            remainingSeconds = 59 - seconds;
+        } 
+        else { // If after 5pm, countdown until next 5pm
+            remainingHours = 24 - hours + 16;
+            remainingMinutes = 59 - minutes;
+            remainingSeconds = 59 - seconds;
+        }
+
+        var timerDisplay = document.getElementById(timerId);
+        timerDisplay.innerHTML = "Unlocks in: " + remainingHours + "h " + remainingMinutes + "m " + remainingSeconds + "s";
+    }
+
+    function disableLink(linkId) {
+        var link = document.getElementById(linkId);
+        link.href = "javascript:void(0)"; // Disable the link
+        link.onclick = function() {
+            alert("Sorry, this recipe is only available after 5pm.");
+        };
+    }
+
+    function initializeTimer(linkId, timerId) {
+        var now = new Date();
+        var hours = now.getHours();
+
+        if (hours >= 17 || hours < 3) { // If between 5pm and 3am, hide the timer
+            var timerDisplay = document.getElementById(timerId);
+            timerDisplay.style.display = "none";
+        } else { // Otherwise, initialize the timer
+            updateTimer(timerId); // Initial call to update timer
+
+            // Update timer every second
+            setInterval(function() {
+                updateTimer(timerId);
+                var hours = new Date().getHours();
+                if (hours >= 17 || hours < 3) { // If between 5pm and 3am, hide the timer
+                    var timerDisplay = document.getElementById(timerId);
+                    timerDisplay.style.display = "none";
+                }
+            }, 1000);
+        }
+
+        if (hours < 17) { // If before 5pm, disable the link
+            disableLink(linkId);
+        }
+    }
+
+    initializeTimer("chainzlink", "chainzTimer");
+</script> 
+
+
+
+<!-- SNOOPDOGG -->
+<a id="sdlink" href="../html/snoopdogg.html" class="timer-container">      
+    <img src="../images/snoopdogg/Untitled-1-04.png" class="cover"/>
+</a>    
+<div id="sdTimer" class="timer"></div>
+
+<script>
+    function updateSnoopDoggTimer() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var remainingHours, remainingMinutes, remainingSeconds;
+
+        if (hours < 17 || (hours === 17 && minutes === 0 && seconds === 0)) { // If before 5pm
+            remainingHours = 16 - hours;
+            remainingMinutes = 59 - minutes;
+            remainingSeconds = 59 - seconds;
+        } 
+        else { // If after 5pm, countdown until next 5pm
+            remainingHours = 24 - hours + 16;
+            remainingMinutes = 59 - minutes;
+            remainingSeconds = 59 - seconds;
+        }
+
+        var timerDisplay = document.getElementById("sdTimer");
+        timerDisplay.innerHTML = "Unlocks in: " + remainingHours + "h " + remainingMinutes + "m " + remainingSeconds + "s";
+    }
+
+    function disableSnoopDoggLink() {
+        var link = document.getElementById("sdlink");
+        link.href = "javascript:void(0)"; // Disable the link
+        link.onclick = function() {
+            alert("Sorry, this recipe is only available after 5pm.");
+        };
+    }
+
+    function initializeSnoopDoggTimer() {
+        var now = new Date();
+        var hours = now.getHours();
+
+        if (hours >= 17 || hours < 3) { // If between 5pm and 3am, hide the timer
+            var timerDisplay = document.getElementById("sdTimer");
+            timerDisplay.style.display = "none";
+        } else { // Otherwise, initialize the timer
+            updateSnoopDoggTimer(); // Initial call to update timer
+
+            // Update timer every second
+            setInterval(function() {
+                updateSnoopDoggTimer();
+                var hours = new Date().getHours();
+                if (hours >= 17 || hours < 3) { // If between 5pm and 3am, hide the timer
+                    var timerDisplay = document.getElementById("sdTimer");
+                    timerDisplay.style.display = "none";
+                }
+            }, 1000);
+        }
+
+        if (hours < 17) { // If before 5pm, disable the link
+            disableSnoopDoggLink();
+        }
+    }
+
+    initializeSnoopDoggTimer();
+</script> 
+
+
+<a href="../html/travisscottburger.html">      
+    <img src="../images/travis.png" class="cover"/>
+</a>
+    
+<a href="../html/migossf.html">      
+    <img src="../images/migos/Untitled-1-02.png" class="cover"/>
+</a> 
+    
+<a href="../html/rickross.html">      
+    <img src="../images/rickross/Untitled-1-06.png" class="cover"/>
+</a>    
+    
+<footer>
+    <p>&copy; 2024 Rappers & Recipes. All rights reserved.</p>
+
+    <a href="../html/index.html">Home</a>
+
+    <a href="../html/about.html">About</a>
+
+    <a href="../html/contact.html">Contact</a> 
+</footer>
+    
+    
+<body/>
+<html/> 
